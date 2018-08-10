@@ -1,5 +1,6 @@
 public class Card implements Comparable<Card> {
-    private final static String[] VALUES ={"Joker","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+    private final static String[] VALUES ={"Joker","A","2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+
     private final static String[] SUITS ={"Joker","Club","Diamond","Heart","Spade"};
     private String value;
     private String suit;
@@ -19,10 +20,36 @@ public class Card implements Comparable<Card> {
     {
         return suit;
     }
+
     public int getNumberValue() {
         return numberValue;
     }
-    public void printCard() {
+    public boolean isNext(Card c)
+    {
+        if(c.getSuit().equals(this.suit))
+        {
+            for (int i = 1; i < VALUES.length; i++)
+                if (value.equals(VALUES[i]))
+                {
+                    if (c.getValue().equals(VALUES[i + 1]))
+                        return true;
+                }
+        }
+        return false;
+    }
+
+    public boolean isSameValue(Card c)
+    {
+        return value.equals(c.getValue());
+    }
+
+    public boolean isSameSuit(Card c)
+    {
+        return suit.equals(c.getSuit());
+    }
+
+    public void printCard()
+    {
         System.out.println(this.value + " of " + this.suit);
     }
 
