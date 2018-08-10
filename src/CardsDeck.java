@@ -46,8 +46,6 @@ public class CardsDeck {
 
         for (int i=0;i<this.deckSize;i++) {
             int r = i + rand.nextInt(this.deckSize - i);
-
-            //swapping the elements
             Card temp = this.cards.get(r);
             this.cards.set(r, this.cards.get(i));
             this.cards.set(i, temp);

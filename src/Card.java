@@ -50,15 +50,38 @@ public class Card implements Comparable<Card> {
 
     public void printCard()
     {
-        System.out.println(this.value + " of " + this.suit);
+        if(this.numberValue == 0)
+            System.out.println("Joker");
+        else
+            System.out.println(this.value + " of " + this.suit);
     }
 
     @Override public int compareTo(Card c) {
-        if(this.value == c.value)
+        if(this.value.equals(c.value))
             return 0;
         else if((this.numberValue < c.numberValue) || (this.numberValue == 13  && c.numberValue == 1))
             return -1;
         else
             return 1;
     }
+
+
+    public int compareValue(Card c)
+    {
+        if(this.suit.equals(c.suit))
+        {
+            return this.value.compareTo(c.value);
+        }
+        return 0;
+    }
+
+    public int compareSuit(Card c)
+    {
+        if(this.value.equals(c.value))
+        {
+            return this.suit.compareTo(c.suit);
+        }
+        return 0;
+    }
+
 }
