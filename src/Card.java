@@ -24,7 +24,13 @@ public class Card implements Comparable<Card> {
     public int getNumberValue() {
         return this.numberValue;
     }
+    
     public boolean isNext(Card c)
+    {
+            return ((c.getSuit().equals(this.suit))&&(c.numberValue-this.numberValue==1));
+    }
+    
+    /*public boolean isNext(Card c)
     {
         if(c.getSuit().equals(this.suit))
         {
@@ -36,7 +42,7 @@ public class Card implements Comparable<Card> {
                 }
         }
         return false;
-    }
+    }*/
 
     public boolean isSameValue(Card c)
     {
