@@ -1,6 +1,8 @@
 public class Card implements Comparable<Card> {
     private final static String[] VALUES ={"Joker","A","2","3","4","5","6","7","8","9","10","J","Q","K","A"};
     private final static String[] SUITS ={"Joker","Club","Diamond","Heart","Spade"};
+    public final static int NUMBER_OF_SUITS = 4;
+    public final static int CARDS_PER_SUIT = 13;
 
     private String value;
     private String suit;
